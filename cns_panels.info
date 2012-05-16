@@ -1,0 +1,6 @@
+name = CNS Panels
+description = Easy Editing and Workflow for Panels
+core = 7.x
+
+dependencies[] = ctools
+dependencies[] = panels
