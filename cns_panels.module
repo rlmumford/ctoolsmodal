@@ -4,5 +4,10 @@
  */
 
 /**
- * Implements hook_menu().
+ * Implementation of hook_ctools_plugin_directory().
  */
+function cns_panels_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'panels' && $plugin == 'display_renderers') {
+    return 'plugins/' . $plugin;
+  }
+}
