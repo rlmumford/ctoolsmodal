@@ -39,6 +39,7 @@ function cns_panels_default_panels_renderer_pipeline() {
     ),
   );
   $pipelines[$pipeline->name] = $pipeline;
-  
+  dsm($pipeline);
+  dsm($pipelines);
   return $pipelines;
 }

@@ -1,6 +1,7 @@
 name = CNS Panels
 description = Easy Editing and Workflow for Panels
 core = 7.x
+package = Yan's Custom Modules
 
 dependencies[] = ctools
 dependencies[] = panels
