@@ -43,5 +43,43 @@ function cns_panels_theme() {
     'template' => 'cns-panels-add-content-modal',
   );
   
+  $theme['cns_panels_add_content_link'] = array(
+    'variables' => array('renderer' => NULL, 'region' => NULL, 'content_type' => NULL),
+    'path' => drupal_get_path('module', 'cns_panels') . '/templates',
+    'template' => 'cns-panels-add-content-link',
+  );
+  
   return $theme;
+}
+
+/**
+ * Implements template_process_HOOK().
+ */
+function template_process_cns_panels_add_content_modal(&$vars) {
+  //$custom = ctools_get_content_type('custom');
+  $custom = ctools_content_get_subtypes('custom');
+  $custom = $custom['custom'];
+  $custom += array(
+    'type_name' => 'custom',
+    'subtype_name' => 'custom',
+  );
+  
+  // Change the title to "Images and Text"
+  $custom['title'] = t("Images and Text");
+ 
+  $vars['custom_link'] = theme('cns_panels_add_content_link', array('renderer' => $vars['renderer'], 'region' => $vars['region'], 'content_type' => $custom));
+}
+
+/**
+ * Preprocess the add content link used in the modal.
+ */
+function template_preprocess_cns_panels_add_content_link(&$vars) {
+  template_preprocess_panels_add_content_link($vars);
+}
+
+/**
+ * Implements hook_page_alter()
+ */
+function cns_panels_page_alter(&$page) {
+  drupal_add_css(drupal_get_path('module', 'cns_panels') . '/css/cns_panels.css');
 }
