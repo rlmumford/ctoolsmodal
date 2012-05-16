@@ -32,3 +32,16 @@ function cns_panels_ctools_plugin_api($owner, $api) {
     );
   }
 }
+
+/**
+ * Implements hook_theme()
+ */
+function cns_panels_theme() {
+  $theme['cns_panels_add_content_modal'] = array(
+    'variables' => array('renderer' => NULL, 'categories' => array(), 'region' => NULL, 'category' => NULL, 'column_count' => 2),
+    'path' => drupal_get_path('module', 'cns_panels') . '/templates',
+    'template' => 'cns-panels-add-content-modal',
+  );
+  
+  return $theme;
+}
