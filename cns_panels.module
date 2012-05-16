@@ -74,6 +74,8 @@ function template_process_cns_panels_add_content_modal(&$vars) {
  * Preprocess the add content link used in the modal.
  */
 function template_preprocess_cns_panels_add_content_link(&$vars) {
+  module_load_include('inc', 'panels', 'includes/add-content');
+  
   template_preprocess_panels_add_content_link($vars);
 }
 
